@@ -16,7 +16,4 @@ phases:
       - kubectl version --client
   post_build:
     commands:
-      - echo "Update Kube Config"      
-      - aws eks update-kubeconfig --name todayfinalcluster2022222
-      - echo "Apply changes to kube manifests"
       - kubectl apply -f busybox-deployment.yaml
