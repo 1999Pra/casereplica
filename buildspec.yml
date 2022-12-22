@@ -16,5 +16,7 @@ phases:
       - kubectl version --client
   post_build:
     commands:
-      - echo "Install kubeconfig edited "--role-arn arn:aws:iam::717525166848:role/codebuild-casereplica-service-role
+      - echo "Update Kube Config"      
+      - aws eks update-kubeconfig --name todayfinalcluster2022222 --region ap-northeast-1 
+      - echo "Apply changes to kube manifests"
       - kubectl apply -f busybox-deployment.yaml
